@@ -187,4 +187,26 @@ class BouncyTextView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BouncyTextView) {
+
+        private val animator : Animator = Animator(view)
+        private val bt : BouncyText = BouncyText(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            bt.draw(canvas, paint)
+            animator.animate {
+                bt.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bt.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
