@@ -46,7 +46,7 @@ fun Canvas.drawBTNode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     val gap : Float = h / (text.length + 1)
     val size : Float = gap / sizeFactor
-    paint.textSize = size
+    paint.textSize = gap
     paint.color = foreColor
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
