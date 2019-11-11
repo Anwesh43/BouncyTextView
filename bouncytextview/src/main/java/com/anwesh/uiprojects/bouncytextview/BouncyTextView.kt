@@ -210,4 +210,13 @@ class BouncyTextView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BouncyTextView {
+            val view : BouncyTextView = BouncyTextView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
